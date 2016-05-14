@@ -1,13 +1,13 @@
 {
-  "name": "flux2",
+  "name": "flux_demo",
   "version": "1.0.0",
-  "description": "",
+  "description": "flux demo app",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "murayama333",
+  "license": "MIT",
   "devDependencies": {
     "fluxxor": "^1.7.3",
     "react": "^15.0.2",

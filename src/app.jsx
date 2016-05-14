@@ -6,7 +6,7 @@ var constants = {
     UPDATE_COUNTER: "UPDATE_COUNTER"
 }
 
-// 1
+// Store
 var CounterStore = Fluxxor.createStore({
     initialize: function(){
         this.counter = 0;
@@ -25,7 +25,10 @@ var CounterStore = Fluxxor.createStore({
     }
 });
 
-// 5
+var stores = { CounterStore: new CounterStore()};
+
+
+// Action
 var actions = {
     plusCounter: function(){
         this.dispatch(constants.UPDATE_COUNTER, {value: 1});
@@ -35,10 +38,9 @@ var actions = {
     }
 }
 
+// View & Mixin
 var FluxMixin = Fluxxor.FluxMixin(React);
 var StoreWatchMixin = Fluxxor.StoreWatchMixin;
-
-// 7
 var CounterApp = React.createClass({
     mixins: [FluxMixin, StoreWatchMixin("CounterStore")],
 
@@ -76,14 +78,7 @@ var Counter = React.createClass({
     }
 });
 
-var stores = { CounterStore: new CounterStore()};
 var flux = new Fluxxor.Flux(stores, actions);
-
-var App = React.createClass({
-    render: function(){
-        return (<h1>Hello World</h1>);
-    }
-});
 
 ReactDOM.render(
     <CounterApp flux={flux}/>,
